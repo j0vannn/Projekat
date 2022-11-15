@@ -1,8 +1,7 @@
-<!doctype html>
 <?php session_start();?>
 <html lang="en">
   <head>
-<?php 
+<?php
 try{$connection = new mysqli("localhost","root","","mysql");} catch(Exception $exception){echo "Error connecting to database";exit();}
 $sessionId = session_id();
 $resultObject = $connection->query("SELECT username,password from sessions where sessionID = '$sessionId' ");
@@ -34,10 +33,10 @@ $resultString = mysqli_fetch_row($resultObject);
 		      	<h3 class="text-center mb-4"><b>Prijavi se<b></h3>
 						<form method="post"action="authentication.php" class="login-form">
 		      		<div class="form-group">
-		      			<input type="text" value = <?php if(isset($resultString)) {echo $resultString[0];} else{echo '';} ?>  name = "username" class="form-control rounded-left" placeholder="Username" required>
+		      			<input type="text" <?php if(isset($resultString)) {echo "value = $resultString[0]";}?>  name = "username" class="form-control rounded-left" placeholder="Username" required>
 		      		</div>
 	            <div class="form-group d-flex">
-	              <input type="password" value = <?php if(isset($resultString)) {echo $resultString[1];} else{echo '';} ?> name= "password" class="form-control rounded-left" placeholder="Password" required>
+	              <input type="password" <?php if(isset($resultString)) {echo "value = $resultString[1]";}?> name= "password" class="form-control rounded-left" placeholder="Password" required>
 	            </div>
 	            <div class="form-group">
 	            	<button type="submit" class="form-control btn btn-primary rounded submit px-3">Login</button>
@@ -49,12 +48,12 @@ $resultString = mysqli_fetch_row($resultObject);
 									  <span class="checkmark"></span>
 									</label>
 									<label>
-									<a style ="color:red" href="register.php"><b>Registruj se<b></a>
+									<a style ="color:red" href="register.php"><b>Registruj se</b></a>
 									</label>
 								</div>
-	            </div>
-	          </form>
-	        </div>
+	             </div>
+	           </form>
+	         </div>
 				</div>
 			</div>
 		</div>

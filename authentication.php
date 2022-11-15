@@ -31,6 +31,9 @@ if(isset($_POST['username'])){
        }
 
 }
+else{
+    echo "You should not be here. Contact website owner.";
+}
       //  $response = mysqli_fetch_array($connection->query("SELECT * from users")); 
        // echo $response[1]
 
