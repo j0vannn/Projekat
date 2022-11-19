@@ -1,0 +1,23 @@
+<?php
+class Korisnik{
+    public $userID;
+    public $password;
+
+    public function __construct($id,$pass){
+        $this->$userID = $id;
+       $this->$password = $pass;
+	}
+
+}
+
+class Gradjanin extends Korisnik{
+    public $imePrezime;
+    public $email;
+    public function __construct($id,$pass,$imePrezime,$email){
+        parent::__construct($id, $pass);
+        $this->$imePrezime = $imePrezime;
+        $this->$email = $email;
+	}
+
+}
+?>

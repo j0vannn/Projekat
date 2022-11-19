@@ -4,7 +4,7 @@
 try{$connection = new mysqli("localhost","root","","mysql");} catch(Exception $exception){echo "Error connecting to database";exit();}
 
  ?>
-  	<title>Register</title>
+  	<title>BEOkom - Register</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -27,22 +27,24 @@ try{$connection = new mysqli("localhost","root","","mysql");} catch(Exception $e
 					<img src="images/logo.png"  width="100" height="90">
 		      	</div>
 		      	<h3 class="text-center mb-4"><b>Registruj se<b></h3>
-						<form method="post" action="registerprocess.php" class="login-form">
+						<form method="post" action="postregister.php" class="login-form">
 		      		<div class="form-group">
 
                       <div class="form-group d-flex">
 	              <input type="text" name= "nameRegister" class="form-control rounded-left" placeholder="Ime i Prezime" required>
 	            </div>
-		      			<input type="text" name = "usernameRegister" class="form-control rounded-left" placeholder="Username" required>
+		      			<input id = "usernameRegister" type="text" name = "usernameRegister" class="form-control rounded-left" placeholder="Username" required>
+						<span id = "userexists" style = "font-size: 10px;color:red;display:none"> Username already exists. </span>
 		      		</div>
 	            <div class="form-group d-flex">
 	              <input type="password" name= "passwordRegister" class="form-control rounded-left" placeholder="Password" required>
 	            </div>
                 <div class="form-group d-flex">
-	              <input type="text" name= "emailRegister" class="form-control rounded-left" placeholder="Email" required>
+	              <input id = "emailRegister" type="text" name= "emailRegister" class="form-control rounded-left" placeholder="Email" required>
 	            </div>
+				<span id = "emailexists" style = "font-size: 10px;color:red;display:none"> Email adress already exists. </span>
 	            <div class="form-group">
-	            	<button type="submit" class="form-control btn btn-primary rounded submit px-3">Register</button>
+	            	<button id = "submit" type="submit" class="form-control btn btn-primary rounded submit px-3">Register</button>
 	            </div>
 	            <div class="form-group d-md-flex">
 	             </div>
@@ -57,6 +59,9 @@ try{$connection = new mysqli("localhost","root","","mysql");} catch(Exception $e
   <script src="js/popper.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/main.js"></script>
+  <script src = "registerajax.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+
 
 	</body>
 </html>

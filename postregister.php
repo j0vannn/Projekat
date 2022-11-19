@@ -1,8 +1,8 @@
-<?php session_start();?>
 <html lang="en">
   <head>
 <?php
-try{$connection = new mysqli("localhost","root","","mysql");} catch(Exception $exception){echo "Error connecting to database";exit();}
+try{$connection = new mysqli("localhost","root","","mysql");
+include("registerprocess.php");} catch(Exception $exception){echo "Error connecting to database";exit();}
 $sessionId = session_id();
 $resultObject = $connection->query("SELECT username,password from sessions where sessionID = '$sessionId' ");
 $resultString = mysqli_fetch_row($resultObject);
@@ -30,7 +30,7 @@ $resultString = mysqli_fetch_row($resultObject);
 		      	<div style="display:flex;justify-content:center">
 					<img src="images/logo.png"  width="100" height="90">
 		      	</div>
-		      	<h3 class="text-center mb-4"><b>Prijavi se<b></h3>
+		      	<h3 class="text-center mb-4" style ="color:green"><b>Registracija uspesna!<b></h3>
 						<form method="post"action="authentication.php" class="login-form">
 		      		<div class="form-group">
 		      			<input type="text" <?php if(isset($resultString)) {echo "value = $resultString[0]";}?>  name = "username" class="form-control rounded-left" placeholder="Username" required>
