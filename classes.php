@@ -14,7 +14,7 @@ class Korisnik{
 class Gradjanin extends Korisnik{
     static function kreirajGradjanina($id,$pass,$imePrezime,$email, $connection){
 		$createUser = "INSERT INTO users(username, PASSWORD) VALUES('$id','$pass')";
-        $createGradjanin = "INSERT INTO gradjani(userID, email, imeprezime) VALUES('$id','$email',
+        $createGradjanin = "INSERT INTO gradjani(username, email, imeprezime) VALUES('$id','$email',
         '$imePrezime')";
         $connection->query($createUser);
         $connection->query($createGradjanin);     
